@@ -5,6 +5,19 @@ public class Employee {
 	private String name;
 	private String designation;
 	private double salary;
+	
+	public Employee() {
+		super();
+	}
+	
+	public Employee(String empId, String name, String designation, double salary) {
+		super();
+		this.empId = empId;
+		this.name = name;
+		this.designation = designation;
+		this.salary = salary;
+	}
+
 	public String getEmpId() {
 		return empId;
 	}

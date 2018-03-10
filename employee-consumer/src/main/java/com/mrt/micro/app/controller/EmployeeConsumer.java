@@ -11,16 +11,20 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-@Controller
+@Component
+@RestController
 public class EmployeeConsumer {
 	
 	@Autowired
 	DiscoveryClient discoveryClient;
 	
-	public void getEmployee() throws RestClientException, IOException {
+	@RequestMapping("/")
+	public String getEmployee() throws RestClientException, IOException {
 
 		List<ServiceInstance> instances=discoveryClient.getInstances("employee-producer");
 		ServiceInstance serviceInstance=instances.get(0);
@@ -37,7 +41,7 @@ public class EmployeeConsumer {
 		{
 			System.out.println(ex);
 		}
-		System.out.println(response.getBody());
+       return response.getBody();
 	}
 
 	private static HttpEntity<?> getHeaders() throws IOException {

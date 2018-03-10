@@ -11,11 +11,10 @@ public class EmployeeController {
 	public Employee firstPage() {
 
 		Employee emp = new Employee();
-		emp.setName("emp1");
-		emp.setDesignation("manager");
+		emp.setName("Mritunjay Prasad Singh");
+		emp.setDesignation("Lead Eng");
 		emp.setEmpId("1");
-		emp.setSalary(3000);
-
+		emp.setSalary(160000);
 		return emp;
 	}
 }
